@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Repos\catalog\src\Plataform.MKT.Api\Plataform.MKT.Api.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="9.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.10">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Options" Version="5.0.0" />
+    <PackageReference Include="Serilog" Version="2.10.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="4.1.0" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="3.2.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="4.0.0" />
+    <PackageReference Include="Serilog.Sinks.Http" Version="7.2.0" />
+    <PackageReference Include="Serilog.Sinks.Splunk" Version="3.6.0" />
+    <PackageReference Include="Serilog.Sinks.Splunk.TCP" Version="1.4.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.2" />
+  </ItemGroup>
+
+<ItemGroup>
+  <ProjectReference Include="..\Plataform.MKT.Application\Plataform.MKT.Application.csproj" />
+  <ProjectReference Include="..\Plataform.MKT.Domain\Plataform.MKT.Domain.csproj" />
+  <ProjectReference Include="..\Plataform.MKT.Infra\Plataform.MKT.Infra.csproj" />
+  <ProjectReference Include="..\Shared\Shared.Api\Shared.Api.csproj" />
+</ItemGroup></Project>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Plataform.MKT.Api</name>
+    </assembly>
+    <members>
+        <member name="T:Plataform.MKT.Api.Configurations.DependencyInjectionConfigurations">
+            <summary>
+            Class that contents IServiceCollection extensions methods.
+            </summary>
+        </member>
+        <member name="M:Plataform.MKT.Api.Configurations.DependencyInjectionConfigurations.ConfigureDI(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configure DI.
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Plataform.MKT.Api.Startup.SwaggerDocTitle">
+            <summary>
+            The swagger title.
+            </summary>
+        </member>
+        <member name="P:Plataform.MKT.Api.Startup.SwaggerDocVersion">
+            <summary>
+            the swagger version.
+            </summary>
+        </member>
+    </members>
+</doc>

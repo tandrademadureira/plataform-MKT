@@ -1,0 +1,284 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Plataform.MKT.Application</name>
+    </assembly>
+    <members>
+        <member name="T:Plataform.MKT.Application.Commands.Catalogs.CreateCommand">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Plataform.MKT.Application.Commands.Catalogs.CreateCommand.CreateContract">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Plataform.MKT.Application.Commands.Catalogs.CreateCommand.CreateContract.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Plataform.MKT.Application.Commands.Catalogs.CreateCommand.Handler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Plataform.MKT.Application.Commands.Catalogs.CreateCommand.Handler.#ctor(Plataform.MKT.Domain.AggregateModels.Catalogs.ICatalogRepository,Plataform.MKT.Infra.UnitOfWork.IUnitOfWork)">
+            <summary>
+            
+            </summary>
+            <param name="catalogRepository"></param>
+            <param name="unitOfWork"></param>
+        </member>
+        <member name="M:Plataform.MKT.Application.Commands.Catalogs.CreateCommand.Handler.Handle(Plataform.MKT.Application.Commands.Catalogs.CreateCommand.CreateContract,System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Plataform.MKT.Application.Commands.Catalogs.DeleteCommand">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Plataform.MKT.Application.Commands.Catalogs.DeleteCommand.DeleteContract">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Plataform.MKT.Application.Commands.Catalogs.DeleteCommand.DeleteContract.Id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Plataform.MKT.Application.Commands.Catalogs.DeleteCommand.Handler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Plataform.MKT.Application.Commands.Catalogs.DeleteCommand.Handler.#ctor(Plataform.MKT.Domain.AggregateModels.Catalogs.ICatalogRepository,Plataform.MKT.Infra.UnitOfWork.IUnitOfWork)">
+            <summary>
+            
+            </summary>
+            <param name="catalogRepository"></param>
+            <param name="unitOfWork"></param>
+        </member>
+        <member name="M:Plataform.MKT.Application.Commands.Catalogs.DeleteCommand.Handler.Handle(Plataform.MKT.Application.Commands.Catalogs.DeleteCommand.DeleteContract,System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Plataform.MKT.Application.Commands.Catalogs.SendEmailCommand">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Plataform.MKT.Application.Commands.Catalogs.SendEmailCommand.SendEmailContract">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Plataform.MKT.Application.Commands.Catalogs.SendEmailCommand.SendEmailContract.To">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Plataform.MKT.Application.Commands.Catalogs.SendEmailCommand.Handler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Plataform.MKT.Application.Commands.Catalogs.SendEmailCommand.Handler.#ctor(MediatR.IMediator)">
+            <summary>
+            
+            </summary>
+            <param name="mediator"></param>
+        </member>
+        <member name="M:Plataform.MKT.Application.Commands.Catalogs.SendEmailCommand.Handler.Handle(Plataform.MKT.Application.Commands.Catalogs.SendEmailCommand.SendEmailContract,System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Plataform.MKT.Application.Commands.Catalogs.UpdateCommand">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Plataform.MKT.Application.Commands.Catalogs.UpdateCommand.UpdateContract">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Plataform.MKT.Application.Commands.Catalogs.UpdateCommand.UpdateContract.Id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Plataform.MKT.Application.Commands.Catalogs.UpdateCommand.UpdateContract.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Plataform.MKT.Application.Commands.Catalogs.UpdateCommand.Handler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Plataform.MKT.Application.Commands.Catalogs.UpdateCommand.Handler.#ctor(Plataform.MKT.Domain.AggregateModels.Catalogs.ICatalogRepository,Plataform.MKT.Infra.UnitOfWork.IUnitOfWork,MediatR.IMediator)">
+            <summary>
+            
+            </summary>
+            <param name="catalogRepository"></param>
+            <param name="unitOfWork"></param>
+            <param name="mediator"></param>
+        </member>
+        <member name="M:Plataform.MKT.Application.Commands.Catalogs.UpdateCommand.Handler.Handle(Plataform.MKT.Application.Commands.Catalogs.UpdateCommand.UpdateContract,System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Plataform.MKT.Application.Events.SendEmailEvent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Plataform.MKT.Application.Events.SendEmailEvent.To">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Plataform.MKT.Application.Events.SendEmailEvent.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="to"></param>
+        </member>
+        <member name="T:Plataform.MKT.Application.Events.SendEmailEventHandle">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Plataform.MKT.Application.Events.SendEmailEventHandle._mediator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Plataform.MKT.Application.Events.SendEmailEventHandle.#ctor(MediatR.IMediator)">
+            <summary>
+            
+            </summary>
+            <param name="mediator"></param>
+        </member>
+        <member name="M:Plataform.MKT.Application.Events.SendEmailEventHandle.Handle(Plataform.MKT.Application.Events.SendEmailEvent,System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="notification"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Plataform.MKT.Application.Queries.Catalogs.GetByIdQuery">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Plataform.MKT.Application.Queries.Catalogs.GetByIdQuery.GetByIdContract">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Plataform.MKT.Application.Queries.Catalogs.GetByIdQuery.GetByIdContract.Id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Plataform.MKT.Application.Queries.Catalogs.GetByIdQuery.Handler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Plataform.MKT.Application.Queries.Catalogs.GetByIdQuery.Handler.#ctor(Plataform.MKT.Domain.AggregateModels.Catalogs.ICatalogRepository)">
+            <summary>
+            
+            </summary>
+            <param name="catalogRepository"></param>
+        </member>
+        <member name="M:Plataform.MKT.Application.Queries.Catalogs.GetByIdQuery.Handler.Handle(Plataform.MKT.Application.Queries.Catalogs.GetByIdQuery.GetByIdContract,System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Plataform.MKT.Application.Queries.Catalogs.GetQuery">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Plataform.MKT.Application.Queries.Catalogs.GetQuery.GetContract">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Plataform.MKT.Application.Queries.Catalogs.GetQuery.GetContract.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Plataform.MKT.Application.Queries.Catalogs.GetQuery.Handler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Plataform.MKT.Application.Queries.Catalogs.GetQuery.Handler.#ctor(Plataform.MKT.Domain.AggregateModels.Catalogs.ICatalogRepository)">
+            <summary>
+            
+            </summary>
+            <param name="catalogRepository"></param>
+        </member>
+        <member name="M:Plataform.MKT.Application.Queries.Catalogs.GetQuery.Handler.Handle(Plataform.MKT.Application.Queries.Catalogs.GetQuery.GetContract,System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Plataform.MKT.Application.Queries.TesteQuery">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Plataform.MKT.Application.Queries.TesteQuery.GetContract">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Plataform.MKT.Application.Queries.TesteQuery.Handler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Plataform.MKT.Application.Queries.TesteQuery.Handler.Handle(Plataform.MKT.Application.Queries.TesteQuery.GetContract,System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

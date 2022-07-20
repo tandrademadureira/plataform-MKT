@@ -1,0 +1,3 @@
+[submodule "src/Shared"]
+	path = src/Shared
+	url = https://smarkets@dev.azure.com/smarkets/Framework/_git/Shared
