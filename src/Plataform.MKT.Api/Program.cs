@@ -1,17 +1,27 @@
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Azure.KeyVault;
+using Microsoft.Azure.Services.AppAuthentication;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration.AzureKeyVault;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using System.IO;
 
 namespace Plataform.MKT.Api
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Program
     {
         private static readonly string _namespace = typeof(Program).Namespace;
         private static readonly string _appName = _namespace;
         private static IConfiguration _configuration;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="args"></param>
         public static void Main(string[] args)
         {
             _configuration = GetConfiguration();
@@ -19,6 +29,7 @@ namespace Plataform.MKT.Api
             var host = CreateHostBuilder(args).Build();
 
             Log.Information("Starting web host ({ApplicationContext})...", _appName);
+
 
             host.Run();
 
@@ -44,8 +55,14 @@ namespace Plataform.MKT.Api
                 .CreateLogger();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="args"></param>
+        /// <returns></returns>
         public static IHostBuilder CreateHostBuilder(string[] args)
         {
+
             Log.Information("Configuring web host ({ApplicationContext})...", _appName);
 
             _configuration = GetConfiguration();
@@ -55,6 +72,20 @@ namespace Plataform.MKT.Api
             Serilog.Debugging.SelfLog.Enable(msg => System.Diagnostics.Debug.WriteLine(msg));
 
             return Host.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((context, config) =>
+                {
+                    var settings = config.Build();
+
+
+                    var keyVaultEndpoint = settings["VaultURI"];
+
+                    if (!string.IsNullOrEmpty(keyVaultEndpoint))
+                    {
+                        var azureServiceTokenProvider = new AzureServiceTokenProvider();
+                        var keyVaultClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
+                        config.AddAzureKeyVault(keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
+                    }
+                })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();

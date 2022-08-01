@@ -11,15 +11,17 @@ namespace Plataform.MKT.Application.Events
     {
         public string Description { get; set; }
         public string Mark { get; set; }
-        public bool ProductApproved { get; set; }
-        public DateTimeOffset RequestDate { get; set; }
+        public bool Approved { get; set; }
+        public int Amount { get; set; }
+        public DateTimeOffset? DataRequisition { get; set; }
 
         public SendQueueEvent(string description, string mark)
         {
             Description = description;
             Mark = mark;
-            ProductApproved = false;
-            RequestDate = DateTimeOffset.Now;
+            Approved = false;
+            DataRequisition = DateTimeOffset.Now;
+            Amount = 0;
         }
     }
 
@@ -38,8 +40,8 @@ namespace Plataform.MKT.Application.Events
             {
                 Description = notification.Description,
                 Mark = notification.Mark,
-                ProductApproved = notification.ProductApproved,
-                RequestDate = notification.RequestDate
+                Approved = notification.Approved,
+                DataRequisition = notification.DataRequisition
             });
         }
     }

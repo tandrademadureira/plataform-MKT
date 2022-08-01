@@ -5,6 +5,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using Plataform.MKT.Infra.Data.Repositories;
 using Plataform.MKT.Domain.AggregateModels.Products;
+using MediatR;
+using Plataform.MKT.Application.Events;
 
 namespace Plataform.MKT.Application.Commands.Catalogs
 {
@@ -20,15 +22,19 @@ namespace Plataform.MKT.Application.Commands.Catalogs
         {
             private readonly IProductRepository _productRepository;
             private readonly IUnitOfWork _unitOfWork;
+            private readonly IMediator _mediator;
 
-            public Handler(IProductRepository productRepository, IUnitOfWork unitOfWork)
+            public Handler(IProductRepository productRepository, 
+                           IUnitOfWork unitOfWork, 
+                           IMediator mediator)
             {
                 _productRepository = productRepository;
                 _unitOfWork = unitOfWork;
+                _mediator = mediator;
             }
 
             public async override Task<Result> Handle(CreateContract request, CancellationToken cancellationToken)
-            {
+            {                
                 var resultModel = Product.CreateProduct(request.Description, request.Mark);
 
                 if (resultModel.IsFailure)
@@ -36,6 +42,8 @@ namespace Plataform.MKT.Application.Commands.Catalogs
 
                 await _productRepository.Add(resultModel.Data);
                 await _unitOfWork.SaveChangesAsync();
+
+                await _mediator.Publish(new SendQueueEvent(request.Description, request.Mark));
 
                 return Result.Ok();
             }

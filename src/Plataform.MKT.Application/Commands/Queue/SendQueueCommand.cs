@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.Extensions.Configuration;
 using Shared.Infra.Cqrs;
 using Shared.Util.Result;
 using System;
@@ -13,17 +14,18 @@ namespace Plataform.MKT.Application.Commands.Queue
         {
             public string Description { get; set; }
             public string Mark { get; set; }
-            public bool ProductApproved { get; set; }
-            public DateTimeOffset RequestDate { get; set; }
+            public bool Approved { get; set; }
+            public int Amount { get; set; }
+            public DateTimeOffset? DataRequisition { get; set; }
         }
 
         public class Handler : BaseHandler<SendQueueContract, Result>
         {
-            private readonly IMediator _mediator;
+            private readonly IConfiguration _configuration;
 
-            public Handler(IMediator mediator)
+            public Handler(IConfiguration configuration)
             {
-                _mediator = mediator;
+                _configuration = configuration;  
             }
 
             /// <summary>
@@ -36,7 +38,7 @@ namespace Plataform.MKT.Application.Commands.Queue
             {
 
                 //Enviar para a fila
-
+                var teste = _configuration["Teste"];
 
                 return Result.Ok();
             }
