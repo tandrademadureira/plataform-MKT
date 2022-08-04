@@ -10,10 +10,8 @@
 </ItemGroup>
 
 <ItemGroup>
+  <PackageReference Include="Azure.Messaging.EventHubs" Version="5.7.1" />
+  <PackageReference Include="IKVM" Version="8.2.1" />
   <PackageReference Include="MediatR" Version="9.0.0" />
   <PackageReference Include="Serilog" Version="2.10.0" />
-</ItemGroup>
-
-<ItemGroup>
-  <Folder Include="Queries\Catalogs\" />
 </ItemGroup></Project>

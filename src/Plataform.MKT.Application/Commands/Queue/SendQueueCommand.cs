@@ -1,8 +1,13 @@
-﻿using MediatR;
+﻿using Azure.Messaging.EventHubs;
+using Azure.Messaging.EventHubs.Producer;
+using MediatR;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
+using Plataform.MKT.Infra.Integrations.EventHub;
 using Shared.Infra.Cqrs;
 using Shared.Util.Result;
 using System;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -22,10 +27,12 @@ namespace Plataform.MKT.Application.Commands.Queue
         public class Handler : BaseHandler<SendQueueContract, Result>
         {
             private readonly IConfiguration _configuration;
+            private IEventHubProducer _eventHubProducer;
 
+            private EventHubProducer _producerClient;
             public Handler(IConfiguration configuration)
             {
-                _configuration = configuration;  
+                _configuration = configuration;
             }
 
             /// <summary>
@@ -36,9 +43,11 @@ namespace Plataform.MKT.Application.Commands.Queue
             /// <returns></returns>
             public async override Task<Result> Handle(SendQueueContract request, CancellationToken cancellationToken)
             {
+                var eventHubConnectionString = _configuration["EventHubConnectionString"];
+                var eventHubName = _configuration["EventHubName"];
 
-                //Enviar para a fila
-                var teste = _configuration["Teste"];
+                _eventHubProducer = new EventHubProducer(eventHubConnectionString, eventHubName);
+                await _eventHubProducer.SendAsync(request);
 
                 return Result.Ok();
             }
