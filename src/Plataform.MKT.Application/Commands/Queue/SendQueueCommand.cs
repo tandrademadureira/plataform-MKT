@@ -28,8 +28,6 @@ namespace Plataform.MKT.Application.Commands.Queue
         {
             private readonly IConfiguration _configuration;
             private IEventHubProducer _eventHubProducer;
-
-            private EventHubProducer _producerClient;
             public Handler(IConfiguration configuration)
             {
                 _configuration = configuration;
