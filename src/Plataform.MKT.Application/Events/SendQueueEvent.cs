@@ -9,19 +9,21 @@ namespace Plataform.MKT.Application.Events
 {
     public class SendQueueEvent : BaseNotification
     {
+        public Guid Id { get; set; }
         public string Description { get; set; }
         public string Mark { get; set; }
         public bool Approved { get; set; }
         public int Amount { get; set; }
         public DateTimeOffset? DataRequisition { get; set; }
 
-        public SendQueueEvent(string description, string mark)
+        public SendQueueEvent(string description, string mark, Guid id)
         {
             Description = description;
             Mark = mark;
             Approved = false;
             DataRequisition = DateTimeOffset.Now;
             Amount = 0;
+            Id = id;    
         }
     }
 
@@ -38,6 +40,7 @@ namespace Plataform.MKT.Application.Events
         {
             await _mediator.Send(new SendQueueCommand.SendQueueContract()
             {
+                Id = notification.Id,
                 Description = notification.Description,
                 Mark = notification.Mark,
                 Approved = notification.Approved,

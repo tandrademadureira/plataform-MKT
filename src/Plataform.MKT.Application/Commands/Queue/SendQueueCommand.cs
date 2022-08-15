@@ -17,6 +17,7 @@ namespace Plataform.MKT.Application.Commands.Queue
     {
         public class SendQueueContract : BaseCommand<Result>
         {
+            public Guid Id { get; set; }
             public string Description { get; set; }
             public string Mark { get; set; }
             public bool Approved { get; set; }

@@ -7,6 +7,7 @@ using Plataform.MKT.Infra.Data.Repositories;
 using Plataform.MKT.Domain.AggregateModels.Products;
 using MediatR;
 using Plataform.MKT.Application.Events;
+using System;
 
 namespace Plataform.MKT.Application.Commands.Catalogs
 {
@@ -14,6 +15,7 @@ namespace Plataform.MKT.Application.Commands.Catalogs
     {
         public class CreateContract : BaseCommand<Result>
         {
+            public Guid Id { get; set; }
             public string Description { get; set; }
             public string Mark { get; set; }
         }
@@ -35,7 +37,7 @@ namespace Plataform.MKT.Application.Commands.Catalogs
 
             public async override Task<Result> Handle(CreateContract request, CancellationToken cancellationToken)
             {                
-                var resultModel = Product.CreateProduct(request.Description, request.Mark);
+                var resultModel = Product.CreateProduct(request.Description, request.Mark, request.Id);
 
                 if (resultModel.IsFailure)
                     return Result.Fail(resultModel.Error);
@@ -43,7 +45,7 @@ namespace Plataform.MKT.Application.Commands.Catalogs
                 await _productRepository.Add(resultModel.Data);
                 await _unitOfWork.SaveChangesAsync();
 
-                await _mediator.Publish(new SendQueueEvent(request.Description, request.Mark));
+                await _mediator.Publish(new SendQueueEvent(request.Description, request.Mark, request.Id));
 
                 return Result.Ok();
             }

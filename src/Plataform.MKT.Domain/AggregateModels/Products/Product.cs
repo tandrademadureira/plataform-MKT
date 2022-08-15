@@ -11,7 +11,7 @@ namespace Plataform.MKT.Domain.AggregateModels.Products
 
         }
 
-        public static Result<Product> CreateProduct(string description, string mark)
+        public static Result<Product> CreateProduct(string description, string mark, Guid id)
         {
             if (string.IsNullOrEmpty(description))
             {
@@ -25,6 +25,7 @@ namespace Plataform.MKT.Domain.AggregateModels.Products
 
             var model = new Product
             {
+                Id = id,
                 Description = description,
                 Mark = mark,
                 CreatedAt = DateTimeOffset.Now,
